@@ -1,0 +1,16 @@
+.git
+.venv
+.devcontainer
+.pytest_cache
+__pycache__
+logs
+data/hotel_bookings_sample.csv
+tests
+mini-cours
+model/train_baseline.py
+README.md
+Dockerfile
+Dockerfile.ui
+docker-compose.yml
+.dockerignore
+.gitignore

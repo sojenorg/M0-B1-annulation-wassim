@@ -1,0 +1,15 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+ENV PYTHONUNBUFFERED=1 PYTHONDONTWRITEBYTECODE=1
+
+COPY ui/requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Le formulaire est construit à partir des schémas de l'API
+COPY app/__init__.py app/schemas.py app/
+COPY ui/ ui/
+COPY data/exemple_reservation.json data/
+
+EXPOSE 8501
+CMD ["uvicorn", "ui.main:app", "--host", "0.0.0.0", "--port", "8501"]
